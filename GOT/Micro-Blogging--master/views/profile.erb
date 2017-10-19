@@ -1,0 +1,38 @@
+<!-- Profile Page -->
+
+<% if @current_user %>
+	<%# @users.each do |user| %>
+		<h1><%= user.name %> <%= user.last %></h1>
+		<img class="profileImage" src="<%= user.photo.url %>" />
+
+		<div class="profileCredentials">
+			<h3>Profile</h3>
+			<ul>
+				<li>Username: <%= user.username %></li>
+				<li>Occupancy: <%= user.occupancy %></li>
+				<li>Relationship: <%= user.relationship %></li>
+			</ul>
+		</div>
+
+		<div class="currentPost">
+			<h3>Recent Posts</h3>
+			<% user.posts.each do |post| %>
+			<img src="<%= post.photo.url %>" />
+			<%= post.message %>
+
+			<div class="comments1">
+				<h5>Comments</h5>
+				<% post.comments.each do |comment| %>
+					<%= comment.message %>
+				<% end %>
+				<%= erb :comment, locals: {post: post} %>
+			</div>
+
+
+			<% end %>
+		</div>
+	<%# end %>
+
+	<%= erb :editaccount %>
+
+<% end %>

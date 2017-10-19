@@ -1,0 +1,10 @@
+<% if @current_user %>
+<div class="newPost">
+	<h3>New Post</h3>
+	<form method="POST" enctype="multipart/form-data" action="/newpost">
+		<label>New Image</label><input type="file" name="photo" />
+		<textarea name="message" placeholder="What's on your mind <%= current_user.name %> ?"></textarea>
+		<input type="submit" value="Post">
+	</form>
+</div>
+<% end %>

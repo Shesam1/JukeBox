@@ -1,0 +1,13 @@
+<% if @current_user %>
+
+<form method="POST" enctype="multipart/form-data" class="editAccount" action="/profile/update">
+	<label>Change Username</label><input type="text" name="username" value="<%= @current_user.username %>" />
+	<label>Change Password</label><input type="password" name="password" value="<%= @current_user.password %>" />
+	<!-- <input type="file" value="<%= @current_user.photo %>" /> -->
+	<label>Change Occupancy</label><input type="text" name="occupancy" value="<%= @current_user.occupancy %>">
+	<label>Change Relationship</label><input type="text" name="relationship" value="<%= @current_user.relationship %>">
+	<!-- <input type="text" value="Delete Account" /> -->
+	<input type="submit" />
+</form>
+
+<% end %>

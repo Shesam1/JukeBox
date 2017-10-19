@@ -1,0 +1,30 @@
+<h1>News Feed</h1>
+<form method="POST" class="logoutButton" action="/logout">
+	<input type="submit" name="logout" value="Log Out">
+</form>
+<form method="GET" class="" action="/profile">
+	<input type="submit" name="profie" value="Profile">
+
+</form>
+
+<%= erb :newpost %>
+
+<%# @users.each do |user| %>
+	
+	<% @posts.each do |post| %>
+	<div class="buzzfeedPost">
+		<img src="<%= post.photo.url %>" />
+		<%= post.message %>
+
+		<div class="comments1">
+			<h5>Comments</h5>
+			<% post.comments.each do |comment| %>
+				<%= comment.message %>
+			<% end %>
+			<%= erb :comment, locals: {post: post} %>
+		</div>
+
+	</div>
+	<% end %>
+
+<%# end %>
